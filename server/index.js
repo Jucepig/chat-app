@@ -6,6 +6,7 @@ const session = require('express-session')
 const { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env
 
 // CONTROLLERS
+const authCtrl = require('./controllers/authController')
 
 const app = express()
 
@@ -27,3 +28,7 @@ massive({
   app.listen(SERVER_PORT, () => console.log(`Server listening on ${SERVER_PORT}`))
 })
 .catch(err => console.log(err))
+
+// ENDPOINTS
+// Auth
+app.post('/auth/register', authCtrl.register)
