@@ -7,6 +7,7 @@ const { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env
 
 // CONTROLLERS
 const authCtrl = require('./controllers/authController')
+const userCtrl = require('./controllers/userController')
 
 const app = express()
 
@@ -32,3 +33,8 @@ massive({
 // ENDPOINTS
 // Auth
 app.post('/auth/register', authCtrl.register)
+app.post('/auth/login', authCtrl.login)
+app.get('/auth/logout', authCtrl.logout)
+
+// User 
+app.get('/api/user/:user_id', userCtrl.getUser)
