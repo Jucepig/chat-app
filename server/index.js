@@ -12,6 +12,7 @@ const userCtrl = require('./controllers/userController')
 const app = express()
 
 app.use(express.json())
+
 app.use(session({
   secret: SESSION_SECRET,
   resave: false, 

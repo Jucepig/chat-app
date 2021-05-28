@@ -4,7 +4,7 @@ module.exports = {
   register: async (req, res) => {
     const db = req.app.get('db')
     const { username, password } = req.body
-    const profilePic = `https://robohash.org/${username}?set=set5`
+    const profilePic = `https://robohash.org/${username}?set=set4`
     const [ existingUser ] = await db.auth.find_existing_user(username)
 
     if(existingUser) {
