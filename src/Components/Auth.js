@@ -1,13 +1,22 @@
 import { useState, useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
 
-const Auth = (props) => {
+const Auth = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const { handleLogin, handleRegister } = useContext(AuthContext)
 
+  const handleLoginClick = () => {
+    handleLogin(username, password)
+  }
+
+  const handleRegisterClick = () => {
+    handleRegister(username, password)
+  }
+
   return (
     <div>
+      <h2>AUTH: SITE TITLE</h2>
       <input 
         value={username}
         type='text' 
@@ -20,8 +29,10 @@ const Auth = (props) => {
         placeholder='Password'
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={() => handleLogin(username, password)}>Login</button>
-      <button onClick={() => handleRegister(username,password)}>Register</button>
+      <button onClick={handleLoginClick}>Login</button>
+      <button onClick={handleRegisterClick}>Register</button>
     </div>
   )
 }
+
+export default Auth
