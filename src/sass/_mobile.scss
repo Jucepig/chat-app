@@ -1,0 +1,26 @@
+@media(max-width: 426px) {
+  #auth {
+    flex-direction: column;
+    section {
+      @include flexCenter;
+      flex-direction: column;
+      justify-content: space-evenly;
+      height: 20%;
+      width: 100%;
+    }
+  }
+
+  #auth-input-container {
+    input {
+      height: 25%;
+      width: 65%;
+      text-align: center;
+    }
+  }
+  
+  #auth-btn-container {
+    button {
+      width: 40%;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@import '../config';
+
+#auth {
+  height: 100vh;
+  @include set-background($secondary-color);
+  @include flexCenter;
+  h2 {
+    margin: 20px 0;
+  }
+}
+

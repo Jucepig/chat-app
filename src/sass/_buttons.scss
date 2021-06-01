@@ -1,0 +1,21 @@
+%btn {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 10px 16px;
+
+  &:hover {
+    transform: scale(.95);
+    background-color: $tertiary-white;
+  }
+}
+
+.btn-primary {
+  @extend %btn;
+  background-color: lighten($primary-color, 20%);
+}
+
+.btn-secondary {
+  @extend %btn;
+  background-color: lighten($secondary-color, 20%);
+}
+

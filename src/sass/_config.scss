@@ -1,0 +1,24 @@
+$primary-color: #5F92BF;
+$secondary-color: #E56B6F;
+$tertiary-white: #FCFBEE;
+$tertiary-brown: #603140;
+$tertiary-dark: #25283D;
+
+@function set-text-color($color) {
+  @if(lightness($color) > 70) {
+    @return $tertiary-dark
+  } @else {
+    @return $tertiary-white
+  }
+}
+
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color);
+}
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

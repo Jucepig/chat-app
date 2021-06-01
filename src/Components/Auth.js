@@ -15,22 +15,26 @@ const Auth = () => {
   }
 
   return (
-    <div>
-      <h2>AUTH: SITE TITLE</h2>
-      <input 
-        value={username}
-        type='text' 
-        placeholder='Username'
-        onChange={(e) => setUsername(e.target.value)} 
-      />
-      <input
-        value={password}
-        type='password'
-        placeholder='Password'
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLoginClick}>Login</button>
-      <button onClick={handleRegisterClick}>Register</button>
+    <div id="auth">
+      <h2>SITE TITLE</h2>
+      <section id="auth-input-container">
+        <input 
+          value={username}
+          type='text' 
+          placeholder='Username'
+          onChange={(e) => setUsername(e.target.value)} 
+        />
+        <input
+          value={password}
+          type='password'
+          placeholder='Password'
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </section>
+      <section id="auth-btn-container">
+        <button className="btn-primary" onClick={handleLoginClick}>Login</button>
+        <button className="btn-primary" onClick={handleRegisterClick}>Register</button>
+      </section>
     </div>
   )
 }
