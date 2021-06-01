@@ -16,7 +16,7 @@ const Auth = () => {
 
   return (
     <div id="auth">
-      <h2>SITE TITLE</h2>
+      <h1>ChatRooms</h1>
       <section id="auth-input-container">
         <input 
           value={username}

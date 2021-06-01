@@ -2,8 +2,12 @@
 
 @mixin auth-container {
   @include flexCenter(column);
-  height: 20%;
+  height: 25%;
   justify-content: space-evenly;
+}
+
+@mixin mobile-auth-container {
+  width: 100%;
 }
 
 #auth {
@@ -13,6 +17,7 @@
   justify-content: space-evenly;
 
   #{&}-input-container {
+    width: 50%;
     @include auth-container;
     input {
       height: 25%;
@@ -22,25 +27,26 @@
   }
 
   #{&}-btn-container {
+    width: 20%;
     @include auth-container;
     button {
-      width: 100%;
+      width: 80%;
+      height: 35%;
     }
   }
 
   @include mobile{
     @include flexCenter(column);
-    section {
-      width: 100%;
-    }
 
     #auth-input-container {
+      @include mobile-auth-container;
       input {
         width: 50%;
       }
     }
     
     #auth-btn-container {
+      @include mobile-auth-container;
       button {
         width: 30%;
       }

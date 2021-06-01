@@ -13,37 +13,42 @@
   flex-direction: row;
   justify-content: space-evenly; }
   #auth #auth-input-container {
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 20%;
+    height: 25%;
     justify-content: space-evenly; }
     #auth #auth-input-container input {
       height: 25%;
       width: 100%;
       text-align: center; }
   #auth #auth-btn-container {
+    width: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 20%;
+    height: 25%;
     justify-content: space-evenly; }
     #auth #auth-btn-container button {
-      width: 100%; }
+      width: 80%;
+      height: 35%; }
   @media (max-width: 600px) {
     #auth {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column; }
-      #auth section {
+      #auth #auth-input-container {
         width: 100%; }
-      #auth #auth-input-container input {
-        width: 50%; }
-      #auth #auth-btn-container button {
-        width: 30%; } }
+        #auth #auth-input-container input {
+          width: 50%; }
+      #auth #auth-btn-container {
+        width: 100%; }
+        #auth #auth-btn-container button {
+          width: 30%; } }
 
 .btn-primary, .btn-secondary {
   display: inline-block;
