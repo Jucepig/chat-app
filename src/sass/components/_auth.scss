@@ -1,25 +1,42 @@
 @import '../config';
 
+@mixin auth-container {
+  @include flexCenter(column);
+  height: 20%;
+  justify-content: space-evenly;
+}
+
 #auth {
   height: 100vh;
-
   @include set-background($secondary-color);
-
   @include flexCenter(row);
+  justify-content: space-evenly;
 
-  @include mobile{
-    flex-direction: column;
-    section {
-      @include flexCenter(column);
-      justify-content: space-evenly;
-      height: 20%;
+  #{&}-input-container {
+    @include auth-container;
+    input {
+      height: 25%;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  #{&}-btn-container {
+    @include auth-container;
+    button {
       width: 100%;
     }
+  }
+
+  @include mobile{
+    @include flexCenter(column);
+    section {
+      width: 100%;
+    }
+
     #auth-input-container {
       input {
-        height: 25%;
         width: 50%;
-        text-align: center;
       }
     }
     
