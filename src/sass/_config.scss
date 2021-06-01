@@ -1,8 +1,18 @@
+// Colors
 $primary-color: #5F92BF;
 $secondary-color: #E56B6F;
 $tertiary-white: #FCFBEE;
 $tertiary-brown: #603140;
 $tertiary-dark: #25283D;
+// Fonts
+$font-weights: (
+  "regular": 400,
+  "medium" : 500,
+  "bold" : 700
+);
+// Mobile
+$mobile: 600px;
+
 
 @function set-text-color($color) {
   @if(lightness($color) > 70) {
@@ -10,15 +20,22 @@ $tertiary-dark: #25283D;
   } @else {
     @return $tertiary-white
   }
-}
+};
 
 @mixin set-background($color) {
   background-color: $color;
   color: set-text-color($color);
-}
+};
 
-@mixin flexCenter {
+@mixin flexCenter($direction) {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+  flex-direction: $direction;
+};
+
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+};
