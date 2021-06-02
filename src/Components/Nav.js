@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export default Nav = (props) => {
   return (
     <div id='nav'>
-      <Link to="/dashboard">
+      <Link to="/home">
         <p>Home</p>
       </Link>
       <Link>

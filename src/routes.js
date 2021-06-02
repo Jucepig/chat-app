@@ -7,7 +7,7 @@ import Chat from './Components/Chat'
 
 export default (
   <Switch>
-    <Route path = '/login' component={Login} />
+    <Route exact path = '/' component={Login} />
     <PrivateRoute path = '/chat' component={Chat} />
     <PrivateRoute path = '/home' component={Home} />
   </Switch>

@@ -3,11 +3,10 @@ import { useHistory } from 'react-router-dom'
 
 const Home = (props) => {
   const auth = useAuth()
-  const history = useHistory()
-  //create state for rendering message when user not logged in. 
+  const history = useHistory() 
 
-  const handleLogoutClick = () => {
-    auth.handleLogout()
+  const handleLogoutClick = (cb) => {
+    auth.handleLogout(cb)
   }
 
 
@@ -17,7 +16,7 @@ const Home = (props) => {
       <h2>HOME</h2>
       <img src={auth.user.profile_pic} alt={auth.user.username}/>
       <h4>Username: {auth.user.username}</h4>
-      <button onClick={() => handleLogoutClick(history.push('/login'))}>Logout</button>
+      <button onClick={() => handleLogoutClick(() => history.push('/'))}>Logout</button>
     </div>
   ) : (
     <div>You must be logged in.</div>

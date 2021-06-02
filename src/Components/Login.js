@@ -8,12 +8,12 @@ const Login = () => {
   const auth = useAuth()
   const history = useHistory()
 
-  const handleLoginClick = () => {
-    auth.handleLogin(username, password)
+  const handleLoginClick = (cb) => {
+    auth.handleLogin(username, password, cb)
   }
 
-  const handleRegisterClick = () => {
-    auth.handleRegister(username, password)
+  const handleRegisterClick = (cb) => {
+    auth.handleRegister(username, password, cb)
   }
 
   return (
@@ -34,8 +34,8 @@ const Login = () => {
         />
       </section>
       <section id="auth-btn-container">
-        <button className="btn-primary" onClick={() => handleLoginClick(history.push('/home'))}>Login</button>
-        <button className="btn-primary" onClick={() => handleRegisterClick(history.push('/home'))}>Register</button>
+        <button className="btn-primary" onClick={() => handleLoginClick(() => history.push('/home'))}>Login</button>
+        <button className="btn-primary" onClick={() => handleRegisterClick(() => history.push('/home'))}>Register</button>
       </section>
     </div>
   )
