@@ -1,33 +1,11 @@
 import { useState, useContext, createContext } from 'react'
 import axios from 'axios'
-import { Redirect, Route } from 'react-router';
 
 const authContext = createContext();
 
 export const ProvideAuth = ({ children }) => {
   const auth = useProvideAuth();
   return <authContext.Provider value={auth}>{children}</authContext.Provider>
-}
-
-export const PrivateRoute = ({ children, ...rest }) => {
-  let auth = useAuth()
-  return (
-    <Route 
-      {...rest}
-      render={({ location }) => 
-        auth.user ? (
-          children
-        ) : (
-          <Redirect 
-            to={{
-              pathname: "/login",
-              state: { from: location }
-            }}          
-          />
-        )
-      }
-    />
-  )
 }
 
 export const useAuth = () => {

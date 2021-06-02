@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useHistory } from 'react-router-dom'
 
@@ -34,8 +34,8 @@ const Login = () => {
         />
       </section>
       <section id="auth-btn-container">
-        <button className="btn-primary" onClick={() => handleLoginClick(history.push('/'))}>Login</button>
-        <button className="btn-primary" onClick={() => handleRegisterClick(history.push('/'))}>Register</button>
+        <button className="btn-primary" onClick={() => handleLoginClick(history.push('/home'))}>Login</button>
+        <button className="btn-primary" onClick={() => handleRegisterClick(history.push('/home'))}>Register</button>
       </section>
     </div>
   )
