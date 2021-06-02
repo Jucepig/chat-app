@@ -1,11 +1,10 @@
-import { useContext } from 'react'
-import { useAuth } from '../context/AuthContextHook'
+import { useAuth } from '../context/AuthContext'
 import { useHistory } from 'react-router-dom'
 
 const Home = (props) => {
   const auth = useAuth()
   const history = useHistory()
-
+  //create state for rendering message when user not logged in. 
 
   const handleLogoutClick = () => {
     auth.handleLogout()

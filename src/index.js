@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import { AuthProvider } from './context/AuthContext'
-import { ProvideAuth } from './context/AuthContextHook'
+import { ProvideAuth } from './context/AuthContext'
 import { HashRouter } from 'react-router-dom'
 const Router = HashRouter
 

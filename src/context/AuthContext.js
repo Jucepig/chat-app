@@ -1,20 +1,47 @@
-import { createContext, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useState, useContext, createContext } from 'react'
 import axios from 'axios'
+import { Redirect, Route } from 'react-router';
 
-export const AuthContext = createContext()
+const authContext = createContext();
 
-export const AuthProvider = (props) => {
-  const [ user, setUser ] = useState('')
-  const history = useHistory()
+export const ProvideAuth = ({ children }) => {
+  const auth = useProvideAuth();
+  return <authContext.Provider value={auth}>{children}</authContext.Provider>
+}
+
+export const PrivateRoute = ({ children, ...rest }) => {
+  let auth = useAuth()
+  return (
+    <Route 
+      {...rest}
+      render={({ location }) => 
+        auth.user ? (
+          children
+        ) : (
+          <Redirect 
+            to={{
+              pathname: "/login",
+              state: { from: location }
+            }}          
+          />
+        )
+      }
+    />
+  )
+}
+
+export const useAuth = () => {
+  return useContext(authContext)
+}
+
+function useProvideAuth() {
+  const [ user, setUser ] = useState(null)
 
   const handleLogin = (username, password) => {
     axios
       .post('/auth/login', {username, password})
       .then(res => {
-        console.log(res.data)
         setUser(res.data)
-        history.push('/dashboard')
       })
       .catch(err => console.log(err))
   }
@@ -23,9 +50,7 @@ export const AuthProvider = (props) => {
     axios
       .post('/auth/register', {username, password})
       .then(res => {
-        console.log(res.data)
         setUser(res.data)
-        history.push('/dashboard')
       })
       .catch(err => console.log(err))
   }
@@ -34,21 +59,16 @@ export const AuthProvider = (props) => {
     axios
       .get('/auth/logout')
       .then( _ => {
-        setUser('')
-        history.push('/')
+        setUser(null)
       })
       .catch(err => console.log(err))
   }
 
-  return (
-    <AuthContext.Provider value={{
-      user,
-      setUser, 
-      handleLogin,
-      handleRegister,
-      handleLogout
-    }}>
-      {props.children}
-    </AuthContext.Provider>
-  )
+  return {
+    user,
+    setUser,
+    handleLogin,
+    handleRegister,
+    handleLogout
+  }
 }
