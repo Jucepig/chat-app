@@ -1,13 +1,13 @@
 import { Switch, Route } from 'react-router-dom'
-import Auth from './Components/Auth'
-import Dashboard from './Components/Dashboard'
+import Login from './Components/Login'
+import Home from './Components/Home'
 import Chat from './Components/Chat'
 
 
 export default (
   <Switch>
-    <Route exact path = '/' component={Auth} />
-    <Route path = '/dashboard' component={Dashboard} />
+    <Route exact path = '/' component={Home} />
+    <Route path = '/login' component={Login} />
     <Route path = '/chat' component={Chat} />
   </Switch>
 )

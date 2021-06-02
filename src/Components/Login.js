@@ -1,17 +1,19 @@
 import { useState, useContext } from 'react'
-import { AuthContext } from '../context/AuthContext'
+import { useAuth } from '../context/AuthContextHook'
+import { useHistory } from 'react-router-dom'
 
-const Auth = () => {
+const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const { handleLogin, handleRegister } = useContext(AuthContext)
+  const auth = useAuth()
+  const history = useHistory()
 
   const handleLoginClick = () => {
-    handleLogin(username, password)
+    auth.handleLogin(username, password)
   }
 
   const handleRegisterClick = () => {
-    handleRegister(username, password)
+    auth.handleRegister(username, password)
   }
 
   return (
@@ -32,11 +34,11 @@ const Auth = () => {
         />
       </section>
       <section id="auth-btn-container">
-        <button className="btn-primary" onClick={handleLoginClick}>Login</button>
-        <button className="btn-primary" onClick={handleRegisterClick}>Register</button>
+        <button className="btn-primary" onClick={() => handleLoginClick(history.push('/'))}>Login</button>
+        <button className="btn-primary" onClick={() => handleRegisterClick(history.push('/'))}>Register</button>
       </section>
     </div>
   )
 }
 
-export default Auth
+export default Login

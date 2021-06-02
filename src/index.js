@@ -3,17 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { AuthProvider } from './context/AuthContext'
+// import { AuthProvider } from './context/AuthContext'
+import { ProvideAuth } from './context/AuthContextHook'
 import { HashRouter } from 'react-router-dom'
 const Router = HashRouter
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <AuthProvider>
+    <ProvideAuth>
+      <Router>
         <App />
-      </AuthProvider>
-    </Router>
+      </Router>
+    </ProvideAuth>
   </React.StrictMode>,
   document.getElementById('root')
 );

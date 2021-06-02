@@ -2,6 +2,7 @@
 
 .env
 src/**/*.css
+src/context/AuthContext.js
 
 # dependencies
 /node_modules
