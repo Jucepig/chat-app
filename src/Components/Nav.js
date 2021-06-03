@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
  const Nav = (props) => {
   return (
-    <div id='nav'>
+    <nav id='nav'>
       <Link to="/home">
         <p>Home</p>
       </Link>
@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
       <Link to="/home/chat">
         <p>Chat</p>
       </Link>
-    </div>
+    </nav>
   )
 }
 
