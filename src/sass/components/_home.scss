@@ -1,0 +1,31 @@
+@import '../config';
+
+
+#home-container {
+ height: 100vh;
+ @include flexCenter(column);
+};
+
+#nav {
+  @include set-background($secondary-color);
+  a {
+    color: inherit
+  };
+}
+
+@include mobile{
+  #nav {
+    @include flexCenter(row);
+    width: 100%;
+  }
+
+
+
+  #profile{
+    @include flexCenter(row);
+  };
+  
+  #profile-pic{
+    width: 30%;
+  };
+}

@@ -10,11 +10,12 @@ const Profile = (props) => {
   }
 
   return (
-    <aside>
-        <h2>HOME</h2>
-        <img src={auth.user.profile_pic} alt={auth.user.username}/>
+    <aside id="profile">
+        <div>
+          <img id="profile-pic" src={auth.user.profile_pic} alt={auth.user.username}/>
+          <button className="btn-secondary" onClick={() => handleLogoutClick(() => history.push('/'))}>Logout</button>
+        </div>
         <h4>Username: {auth.user.username}</h4>
-        <button className="btn-secondary" onClick={() => handleLogoutClick(() => history.push('/'))}>Logout</button>
     </aside>
   )
 }

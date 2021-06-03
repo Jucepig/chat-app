@@ -37,6 +37,7 @@
 
   @include mobile{
     @include flexCenter(column);
+    justify-content: center;
 
     #auth-input-container {
       @include mobile-auth-container;

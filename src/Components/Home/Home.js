@@ -4,12 +4,14 @@ import Profile from '../Profile'
 
 const Home = (props) => {
   return (
-    <div>
+    <div id="home-container">
       <Nav />
-      <Profile />
-      <section>
-        {homeRoutes}
-      </section>
+      <main id="hero">
+        <Profile />
+        <section id="showcase">
+          {homeRoutes}
+        </section>
+      </main>
     </div>
   )
 }

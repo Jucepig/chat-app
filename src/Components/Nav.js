@@ -3,15 +3,17 @@ import { Link } from 'react-router-dom'
  const Nav = (props) => {
   return (
     <nav id='nav'>
-      <Link to="/home">
-        <p>Home</p>
-      </Link>
-      <Link to="/home/chatrooms">
-        <p>ChatRooms</p>
-      </Link>
-      <Link to="/home/chat">
-        <p>Chat</p>
-      </Link>
+      <div id="links">
+        <Link to="/home">
+          Home
+        </Link>
+        <Link to="/home/chatrooms">
+          ChatRooms
+        </Link>
+        <Link to="/home/chat">
+          Chat
+        </Link>
+      </div>
     </nav>
   )
 }
