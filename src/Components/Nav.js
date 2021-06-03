@@ -7,9 +7,6 @@ export default Nav = (props) => {
         <p>Home</p>
       </Link>
       <Link>
-        <p>Profile</p>
-      </Link>
-      <Link>
         <p>ChatRooms</p>
       </Link>
       <Link to="/chat">
