@@ -11,11 +11,11 @@ const Profile = (props) => {
 
   return (
     <aside id="profile">
-        <div>
+        <div id="user-logout">
           <img id="profile-pic" src={auth.user.profile_pic} alt={auth.user.username}/>
           <button className="btn-secondary" onClick={() => handleLogoutClick(() => history.push('/'))}>Logout</button>
         </div>
-        <h4>Username: {auth.user.username}</h4>
+        <div id="username">Username: {auth.user.username}</div>
     </aside>
   )
 }

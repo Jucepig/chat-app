@@ -8,24 +8,98 @@
 
 #nav {
   @include set-background($secondary-color);
+  @include flexCenter(row);
+  justify-content: flex-end;
+  width: 100%;
+  height: 8%;
   a {
     color: inherit
   };
+};
+
+#links {
+  @include flexCenter(row);
+  justify-content: space-evenly;
+  width: 90%;
 }
 
+#hero {
+  @include flexCenter(row);
+  width: 100%;
+  height: 92%;
+}
+
+#profile {
+  @include flexCenter(column-reverse);
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  width: 25%;
+};
+
+#user-logout {
+  @include flexCenter(column);
+  justify-content: space-evenly;
+  height: 80%;
+  width: 100%;
+  button {
+    width: 35%;
+    height: 10%;
+  }
+}
+
+#username {
+  height: 20%;
+}
+
+#profile-pic{
+  width: 200px;
+};
+
+#showcase {
+  height: 100%;
+  width: 75%;
+};
+
 @include mobile{
-  #nav {
-    @include flexCenter(row);
-    width: 100%;
+
+  #links {
+    justify-content: space-around;
+    width: 70%;
   }
 
-
+  #hero {
+    @include flexCenter(column);
+  }
 
   #profile{
     @include flexCenter(row);
+    justify-content: flex-start;
+    height: 25%;
+    width: 100%;
   };
+
+  #user-logout {
+    @include flexCenter(column);
+    width: 40%;
+    height: 100%;
+    button {
+      width: 50%;
+      height: 15%;
+    }
+  }
+
+  #username {
+    width: 60%;
+    height: 100%;
+  }
   
   #profile-pic{
-    width: 30%;
+    width: 80px;
   };
+
+  #showcase {
+    height: 75%;
+    width: 100%;
+  }
 }
