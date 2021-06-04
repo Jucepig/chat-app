@@ -1,5 +1,5 @@
 import { Switch, Route } from 'react-router-dom'
-import Chat from '../Chat'
+import Chat from '../Chat/Chat'
 import ChatRooms from '../ChatRooms'
 
 export default (

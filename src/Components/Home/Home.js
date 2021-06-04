@@ -1,6 +1,6 @@
-import Nav from '../Nav'
+import Nav from './Nav'
 import homeRoutes from './homeRoutes'
-import Profile from '../Profile'
+import Profile from './Profile'
 import { useLocation } from 'react-router-dom'
 
 const Home = (props) => {
