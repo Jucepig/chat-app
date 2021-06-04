@@ -15,7 +15,9 @@ const Profile = (props) => {
           <img id="profile-pic" src={auth.user.profile_pic} alt={auth.user.username}/>
           <button className="btn-secondary" onClick={() => handleLogoutClick(() => history.push('/'))}>Logout</button>
         </div>
-        <div id="username">Username: {auth.user.username}</div>
+        <div id="username">
+          <p>{auth.user.username}</p>
+        </div>
     </aside>
   )
 }

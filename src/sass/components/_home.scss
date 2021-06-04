@@ -31,6 +31,7 @@
 
 #profile {
   @include flexCenter(column-reverse);
+  @include set-background($primary-color);
   justify-content: flex-end;
   align-items: center;
   height: 100%;
@@ -43,12 +44,14 @@
   height: 80%;
   width: 100%;
   button {
-    width: 35%;
+    width: 50%;
     height: 10%;
   }
 }
 
 #username {
+  @include flexCenter(row);
+  justify-content: center;
   height: 20%;
 }
 
@@ -81,21 +84,22 @@
 
   #user-logout {
     @include flexCenter(column);
-    width: 40%;
+    justify-content: space-between;
+    width: 35%;
     height: 100%;
     button {
       width: 50%;
-      height: 15%;
+      height: 20%;
     }
   }
 
   #username {
-    width: 60%;
+    width: 65%;
     height: 100%;
   }
   
   #profile-pic{
-    width: 80px;
+    width: 100px;
   };
 
   #showcase {

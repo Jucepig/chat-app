@@ -1,18 +1,30 @@
 import Nav from '../Nav'
 import homeRoutes from './homeRoutes'
 import Profile from '../Profile'
+import { useLocation } from 'react-router-dom'
 
 const Home = (props) => {
-  return (
+  const location = useLocation()
+  return location.pathname === '/home'? (    
     <div id="home-container">
       <Nav />
       <main id="hero">
         <Profile />
         <section id="showcase">
-          {homeRoutes}
+          Welcome!
         </section>
       </main>
     </div>
+  ) : (
+      <div id="home-container">
+        <Nav />
+        <main id="hero">
+          <Profile />
+          <section id="showcase">
+            {homeRoutes}
+          </section>
+        </main>
+      </div>
   )
 }
 

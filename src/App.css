@@ -83,6 +83,8 @@
   display: flex;
   align-items: center;
   flex-direction: column-reverse;
+  background-color: #5F92BF;
+  color: #FCFBEE;
   justify-content: flex-end;
   align-items: center;
   height: 100%;
@@ -96,10 +98,14 @@
   height: 80%;
   width: 100%; }
   #user-logout button {
-    width: 35%;
+    width: 50%;
     height: 10%; }
 
 #username {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
   height: 20%; }
 
 #profile-pic {
@@ -128,16 +134,17 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 40%;
+    justify-content: space-between;
+    width: 35%;
     height: 100%; }
     #user-logout button {
       width: 50%;
-      height: 15%; }
+      height: 20%; }
   #username {
-    width: 60%;
+    width: 65%;
     height: 100%; }
   #profile-pic {
-    width: 80px; }
+    width: 100px; }
   #showcase {
     height: 75%;
     width: 100%; } }
