@@ -4,15 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ProvideAuth } from './context/AuthContext'
+import { ProvideChat } from './context/ChatContext'
 import { HashRouter } from 'react-router-dom'
 const Router = HashRouter
 
 ReactDOM.render(
   <React.StrictMode>
     <ProvideAuth>
-      <Router>
-        <App />
-      </Router>
+      <ProvideChat>
+        <Router>
+          <App />
+        </Router>
+      </ProvideChat>
     </ProvideAuth>
   </React.StrictMode>,
   document.getElementById('root')

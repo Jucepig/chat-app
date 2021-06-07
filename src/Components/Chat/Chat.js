@@ -1,22 +1,22 @@
-// import { useState, useEffect, useContext } from 'react'
-// import { useAuth } from '../context/AuthContext'
-// import io from 'socket.io-client'
 import ChatWindow from './ChatWindow'
+import { useChat } from '../../context/ChatContext'
+import { useState } from 'react'
 
 const Chat = (props) => {
-  // const [socket, setSocket] = useState(null)
-  // const { user } = useAuth();
+  const chat = useChat()
+  const [ message, setMessage ] = useState()
 
-  // useEffect(() => {
-  //   setSocket(io.connect('', {username: user.username}))
-  // }, [])
+  const sendMessage = () => {
+    chat.sendMessage(message)
+    setMessage('')
+  }
   
   return (
-    <div>
+    <div id="chat">
       <ChatWindow />
-      <div>
-        <input></input>
-        <button>Send</button>
+      <div id="input">
+        <input value={message} onChange={e => setMessage(e.target.value )} />
+        <button onClick={sendMessage}>Send</button>
       </div>
     </div>
   )
