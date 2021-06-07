@@ -33,7 +33,7 @@ function useProvideChat () {
       //client-side endpoints
       socket.on('relay-message', (body) => {
         const {message, username} = body
-        setMessages([...messages, {message, username}])
+        setMessages(messages => [...messages, {message, username}])
       })
     }
   }, [socket])
