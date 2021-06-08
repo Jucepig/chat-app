@@ -34,7 +34,7 @@ massive({
     socket.on('disconnect', () => {
       console.log(`Socket ${socket.id} disconnected`)
     })
-    // Socket Endpoints
+    // Server Endpoints
     socket.on('send-message', (body) => {
       io.emit('relay-message', body)
     })
@@ -49,4 +49,5 @@ app.post('/auth/login', authCtrl.login)
 app.get('/auth/logout', authCtrl.logout)
 
 // User 
-app.get('/api/user/:user_id', userCtrl.checkOnlineStatus)
+app.get('/api/user/:user_id', userCtrl.getUser)
+app.get('/api/users', userCtrl.getAllUsers)

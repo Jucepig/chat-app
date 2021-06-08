@@ -4,6 +4,9 @@ module.exports = {
   register: async (req, res) => {
     const db = req.app.get('db')
     const { username, password } = req.body
+    if(!username || !password ) {
+      return res.status(406).send('Username and/or Password cannot be empty')
+    }
     const profilePic = `https://robohash.org/${username}?set=set4`
     const [ existingUser ] = await db.auth.find_existing_user(username)
 
@@ -23,6 +26,9 @@ module.exports = {
   login: async (req, res) => {
     const db = req.app.get('db')
     const { username, password } = req.body
+    if(!username || !password ) {
+      return res.status(406).send('Username and/or Password cannot be empty')
+    }
     const [ existingUser ] = await db.auth.find_existing_user(username)
     const user_id = existingUser.user_id
 

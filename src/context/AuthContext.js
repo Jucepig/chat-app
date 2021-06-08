@@ -16,15 +16,20 @@ export const useAuth = () => {
 
 function useProvideAuth() {
   const [ user, setUser ] = useState(null)
+  const [ error, setError ] = useState('')
 
   const handleLogin = (username, password, cb) => {
     axios
       .post('/auth/login', {username, password})
       .then(res => {
         setUser(res.data)
+        setError('')
         cb()
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err)
+        setError(err.response.data)
+      })
   }
 
   const handleRegister = (username, password, cb) => {
@@ -32,9 +37,13 @@ function useProvideAuth() {
       .post('/auth/register', {username, password})
       .then(res => {
         setUser(res.data)
+        setError('')
         cb()
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err)
+        setError(err.response.data)
+      })
   }
 
   const handleLogout = (cb) => {
@@ -50,6 +59,8 @@ function useProvideAuth() {
   return {
     user,
     setUser,
+    error,
+    setError,
     handleLogin,
     handleRegister,
     handleLogout

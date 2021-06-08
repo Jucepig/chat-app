@@ -7,6 +7,7 @@ const Login = () => {
   const [password, setPassword] = useState('')
   const auth = useAuth()
   const history = useHistory()
+  const {error, setError } = auth
 
   const handleLoginClick = (cb) => {
     auth.handleLogin(username, password, cb)
@@ -16,10 +17,17 @@ const Login = () => {
     auth.handleRegister(username, password, cb)
   }
 
+  const closeErrorMessage = () => {
+    setUsername('')
+    setPassword('')
+    setError('')
+  }
+
   return (
     <div id="auth">
       <h1>ChatRooms</h1>
       <section id="auth-input-container">
+        {error ? <span>{error}  <button className="btn-primary" onClick={closeErrorMessage}>X</button></span> : null}
         <input 
           value={username}
           type='text' 
