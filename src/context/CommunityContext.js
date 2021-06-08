@@ -1,4 +1,5 @@
 import { useState, useContext, createContext } from 'react'
+import axios from 'axios'
 
 const communityContext = createContext()
 
@@ -15,11 +16,26 @@ export const useCommunity = () => {
 
 function useProvideCommunity () {
   const [communityUsers, setCommunityUsers] = useState([])
+  const [loading, setLoading] = useState(true)
 
-
+  const getAllUsers = () => {
+    axios
+    .get('/api/users')
+    .then(res => {
+      setCommunityUsers(res.data)
+      setLoading(false)
+    })
+    .catch(err => {
+      console.log(err)
+      setLoading(true)
+    })
+  }
 
   return {
     communityUsers,
-    setCommunityUsers
+    setCommunityUsers,
+    loading, 
+    setLoading,
+    getAllUsers
   }
 }

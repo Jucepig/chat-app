@@ -10,7 +10,7 @@
   @include flexCenter(column);
   height: calc(100% - 50px);
   width: 100%;
-  background-color: lighten($secondary-color, 30%)
+  background-color: $lighter-secondary;
 }
 
 #input-footer {

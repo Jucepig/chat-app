@@ -8,15 +8,23 @@
 .user {
   @include flexCenter(row);
   width: 100%;
+  height: 120px;
   justify-content: space-between;
+  background-color: $lighter-primary;
 
   &-pic{
-    width: 100px;
+    width: 80px;
+    margin-left: 20px;
   }
 
   &-info{
   @include flexCenter(row);
   justify-content: space-around;
-  width: calc(100% - 100px);
+  width: calc(100% - 80px);
   }
+}
+
+.other-user {
+  @extend .user;
+  background-color: $lighter-secondary;
 }

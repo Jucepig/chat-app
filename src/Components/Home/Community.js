@@ -1,33 +1,24 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useEffect } from 'react'
 import { useCommunity } from '../../context/CommunityContext'
 
 export default function() {
-  const [loading, setLoading] = useState(true)
+  
   const community = useCommunity()
-  const {communityUsers, setCommunityUsers} = community
+  const { communityUsers, loading, getAllUsers } = community
+  
   useEffect(() => {
-    axios
-      .get('/api/users')
-      .then(res => {
-        setCommunityUsers(res.data)
-        setLoading(false)
-      })
-      .catch(err => {
-        console.log(err)
-        setLoading(true)
-      })
+    getAllUsers()
   })
 
   return loading ? (
-    <div>
+    <div id="community">
       Getting users...
     </div>
   ) : (
     <div id="community">
       {communityUsers.map((user, index) => {
         return (
-          <div className="user" key={user.user_id}>
+          <div className={index % 2 === 0 ? 'user' : 'other-user'} key={user.user_id}>
              <img className="user-pic" src={user.profile_pic} alt={user.username}/>
              <div className="user-info">
               <p>{user.username}</p>

@@ -1,6 +1,8 @@
 // Colors
 $primary-color: #5F92BF;
+$lighter-primary: lighten($primary-color, 30%);
 $secondary-color: #E56B6F;
+$lighter-secondary: lighten($secondary-color, 30%);
 $tertiary-white: #FCFBEE;
 $tertiary-brown: #603140;
 $tertiary-dark: #25283D;

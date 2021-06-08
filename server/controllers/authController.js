@@ -30,7 +30,6 @@ module.exports = {
       return res.status(406).send('Username and/or Password cannot be empty')
     }
     const [ existingUser ] = await db.auth.find_existing_user(username)
-    const user_id = existingUser.user_id
 
     if(!existingUser){
       return res.status(409).send('Username not found.')
@@ -42,7 +41,7 @@ module.exports = {
     if(!isAuthenticated){
       return res.status(403).send('Password Incorrect.')
     }
-
+    const user_id = existingUser.user_id
     const [onlineStatus] = await db.auth.set_online_status(user_id, true)
 
     delete existingUser.password

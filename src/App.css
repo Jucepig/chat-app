@@ -155,20 +155,26 @@
   flex-direction: column;
   width: 100%; }
 
-.user {
+.user, .other-user {
   display: flex;
   align-items: center;
   flex-direction: row;
   width: 100%;
-  justify-content: space-between; }
+  height: 120px;
+  justify-content: space-between;
+  background-color: #ccdceb; }
   .user-pic {
-    width: 100px; }
+    width: 80px;
+    margin-left: 20px; }
   .user-info {
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: space-around;
-    width: calc(100% - 100px); }
+    width: calc(100% - 80px); }
+
+.other-user {
+  background-color: #fcedee; }
 
 #chat {
   display: flex;

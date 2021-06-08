@@ -17,6 +17,12 @@ const Login = () => {
     auth.handleRegister(username, password, cb)
   }
 
+  const handleEnterKey = (event) => {
+      if(event.key === 'Enter') {
+        handleLoginClick(() => history.push('/home'))
+      }
+  }
+
   const closeErrorMessage = () => {
     setUsername('')
     setPassword('')
@@ -32,13 +38,15 @@ const Login = () => {
           value={username}
           type='text' 
           placeholder='Username'
-          onChange={(e) => setUsername(e.target.value)} 
+          onChange={(e) => setUsername(e.target.value)}
+          onKeyDown={(e) => handleEnterKey(e)}
         />
         <input
           value={password}
           type='password'
           placeholder='Password'
           onChange={(e) => setPassword(e.target.value)}
+          onKeyDown={(e) => handleEnterKey(e)}
         />
       </section>
       <section id="auth-btn-container">
