@@ -1,6 +1,7 @@
 import Nav from './Nav'
 import homeRoutes from './homeRoutes'
 import Profile from './Profile'
+import Community from './Community'
 import { useLocation } from 'react-router-dom'
 
 const Home = (props) => {
@@ -11,7 +12,7 @@ const Home = (props) => {
       <main id="hero">
         <Profile />
         <section id="showcase">
-          Welcome!
+          <Community/>
         </section>
       </main>
     </div>
