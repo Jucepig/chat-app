@@ -14,9 +14,9 @@ const Chat = (props) => {
   return (
     <div id="chat">
       <ChatWindow />
-      <div id="input">
-        <input value={message} onChange={e => setMessage(e.target.value )} />
-        <button onClick={sendMessage}>Send</button>
+      <div id="input-footer">
+        <input id="input" value={message} onChange={e => setMessage(e.target.value )} />
+        <button className="btn-primary" id="submit-message" onClick={sendMessage}>Send</button>
       </div>
     </div>
   )

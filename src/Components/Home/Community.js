@@ -18,19 +18,21 @@ export default function() {
         setLoading(true)
       })
   })
-  
+
   return loading ? (
     <div>
       Getting users...
     </div>
   ) : (
-    <div>
-      {communityUsers.map(user => {
+    <div id="community">
+      {communityUsers.map((user, index) => {
         return (
-          <div key={user.user_id}>
-             <img src={user.profile_pic} alt={user.username}/>
-             <p>{user.username}</p>
-             <p>{user.online ? 'online' : 'offline'}</p>
+          <div className="user" key={user.user_id}>
+             <img className="user-pic" src={user.profile_pic} alt={user.username}/>
+             <div className="user-info">
+              <p>{user.username}</p>
+              <p>{user.online ? 'online' : 'offline'}</p>
+             </div>
           </div>
         )
       })}

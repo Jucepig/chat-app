@@ -1,0 +1,66 @@
+@import '../config';
+
+#chat {
+  @include flexCenter(column);
+  width: 100%;
+  height: 100%;
+}
+
+#chat-window {
+  @include flexCenter(column);
+  height: calc(100% - 50px);
+  width: 100%;
+  background-color: lighten($secondary-color, 30%)
+}
+
+#input-footer {
+  @include flexCenter(row);
+  @include set-background($secondary-color);
+  justify-content: space-evenly;
+  width: 100%;
+  height: 50px;
+}
+
+#input {
+  width: 80%;
+  height: 80%;
+  border-radius: 10px;
+}
+
+#submit-message {
+  width: 100px;
+  height: 80%;
+}
+
+
+@include mobile {
+  #chat {
+    @include flexCenter(column);
+    width: 100%;
+    height: 100%;
+  }
+
+  #chat-window {
+    @include flexCenter(column);
+    height: calc(100% - 50px);
+  }
+
+  #input-footer {
+    @include flexCenter(row);
+    @include set-background($secondary-color);
+    justify-content: space-evenly;
+    width: 100%;
+    height: 50px;
+  }
+
+  #input {
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
+  }
+
+  #submit-message {
+    width: 100px;
+    height: 80%;
+  }
+}
