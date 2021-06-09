@@ -8,6 +8,7 @@ const { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env
 // CONTROLLERS
 const authCtrl = require('./controllers/authController')
 const userCtrl = require('./controllers/userController')
+const friendshipCtrl = require('./controllers/friendshipController')
 
 const app = express()
 
@@ -52,3 +53,9 @@ app.get('/auth/logout', authCtrl.logout)
 // User 
 app.get('/api/user/:user_id', userCtrl.getUser)
 app.get('/api/users', userCtrl.getAllUsers)
+
+// Friendships
+app.post('/api/friendships', friendshipCtrl.createRequest)
+app.get('/api/friendships/:user_id', friendshipCtrl.getAllRequests)
+app.post('/api/friendships/update', friendshipCtrl.updateFriendship )
+app.delete('/api/friendships/:friendship_id')

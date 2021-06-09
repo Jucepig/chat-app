@@ -37,6 +37,8 @@ function useProvideCommunity () {
     setCommunityUsers,
     loading, 
     setLoading,
+    chatRooms,
+    setChatRooms,
     getAllUsers
   }
 }
