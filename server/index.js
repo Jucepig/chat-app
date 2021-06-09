@@ -32,13 +32,17 @@ massive({
 
   io.on('connection', (socket) => {
     console.log(`Socket ${socket.id} connected`)
-    
+    // Server Endpoints
     socket.on('disconnect', () => {
       console.log(`Socket ${socket.id} disconnected`)
     })
-    // Server Endpoints
+
     socket.on('send-message', (body) => {
       io.emit('relay-message', body)
+    })
+
+    socket.on('join-room', room => {
+      socket.join(room)
     })
   })
 })
@@ -58,4 +62,4 @@ app.get('/api/users', userCtrl.getAllUsers)
 app.post('/api/friendships', friendshipCtrl.createRequest)
 app.get('/api/friendships/:user_id', friendshipCtrl.getAllRequests)
 app.post('/api/friendships/update', friendshipCtrl.updateFriendship )
-app.delete('/api/friendships/:friendship_id')
+app.delete('/api/friendships/:friendship_id', friendshipCtrl.deleteFriendship)
