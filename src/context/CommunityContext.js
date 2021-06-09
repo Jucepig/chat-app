@@ -16,6 +16,7 @@ export const useCommunity = () => {
 
 function useProvideCommunity () {
   const [communityUsers, setCommunityUsers] = useState([])
+  const [chatRooms, setChatRooms] = useState([])
   const [loading, setLoading] = useState(true)
 
   const getAllUsers = () => {

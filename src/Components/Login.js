@@ -18,9 +18,9 @@ const Login = () => {
   }
 
   const handleEnterKey = (event) => {
-      if(event.key === 'Enter') {
-        handleLoginClick(() => history.push('/home'))
-      }
+    if(event.key === 'Enter') {
+      handleLoginClick(() => history.push('/home'))
+    }
   }
 
   const closeErrorMessage = () => {

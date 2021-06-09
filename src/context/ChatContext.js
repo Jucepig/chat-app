@@ -21,12 +21,22 @@ function useProvideChat () {
   const { user } = useAuth();
 
   useEffect(() => {
-    setSocket(io.connect())
-    return () => {
-      socket.disconnect()
-      setSocket(null)
+    if(!user) {
+      if(socket) {
+        socket.disconnect()
+        setSocket(null)
+      }
+    } else {
+      if(!socket) {
+        setSocket(io.connect())
+      }
     }
-  }, [])
+    return () => {
+      if(socket) {
+        socket.disconnect()
+      }
+    }
+  }, [user])
 
   useEffect(() => {
     if(socket){
