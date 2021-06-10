@@ -58,27 +58,43 @@ export default () => {
     )
   } else if(auth.user.user_id === profiledUser.user_id) {
     return editing ? (
-      <div>
-        <img src={profiledUser.profile_pic} alt={profiledUser.username}/> 
-        <p>{profiledUser.username}</p>
-        <p>{profiledUser.interests}</p>
-        <input placeholder={profiledUser.interests} value={input} onChange={e => setInput(e.target.value )} />
-        <button className="btn-secondary" onClick={() => handleSaveInterests()}>Save</button>
+      <div id="about-me-container">
+        <div className="about-me-profile">
+          <img className="about-me-pic" src={profiledUser.profile_pic} alt={profiledUser.username}/> 
+          <p className="about-me-username">{profiledUser.username}</p>
+        </div>
+        <div className="about-me-interests">
+          <p>Interests:</p>
+          <input id="interests-input" placeholder='what are you interested in?' value={input} onChange={e => setInput(e.target.value )} />
+          <button className="btn-secondary" onClick={() => handleSaveInterests()}>Save</button>
+        </div>
       </div>
     ) : (
-      <div>
-        <img src={profiledUser.profile_pic} alt={profiledUser.username}/> 
-        <p>{profiledUser.username}</p>
-        <p>{profiledUser.interests}</p>
-        <button className="btn-secondary" onClick={() => handleToggleEdit()}>Edit</button>
+      <div id="about-me-container">
+        <div className="about-me-profile">
+          <img className="about-me-pic" src={profiledUser.profile_pic} alt={profiledUser.username}/> 
+          <p className="about-me-username">{profiledUser.username}</p>
+        </div>
+        <div className="about-me-interests">
+          <p>Interests:</p>
+          <div>{profiledUser.interests}</div>
+          <button className="btn-secondary" onClick={() => handleToggleEdit()}>Edit</button>
+        </div>
       </div>
     )
   } else {
     return (
-      <div>
-        <img src={profiledUser.profile_pic} alt={profiledUser.username}/> 
-        <p>{profiledUser.username}</p>
-        <p>{profiledUser.interests}</p>
+      <div id="about-me-container">
+        <div className="about-me-profile">
+          <img className="about-me-pic" src={profiledUser.profile_pic} alt={profiledUser.username}/> 
+          <div className="about-me-username">
+            <div>{profiledUser.username}</div>
+          </div>
+        </div>
+        <div className="about-me-interests">
+          <p>Interests:</p>
+          {profiledUser.interests}
+        </div>
       </div>
     )
   }
