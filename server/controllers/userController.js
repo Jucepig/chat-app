@@ -30,7 +30,7 @@ module.exports = {
     const {user_id} = req.params
     const {username} = req.body
     db.user.edit_username(user_id, username)
-      .then(result => {
+      .then(([result]) => {
         delete result.password
         return res.status(200).send(result)
       })
@@ -44,9 +44,12 @@ module.exports = {
     const db = req.app.get('db')
     const {user_id} = req.params
     const {interests} = req.body
-    db.user.edit_username(user_id, interests)
-      .then(result => {
-        return res.status(200).send(result)
+    db.user.edit_interests(user_id, interests)
+      .then(([result])=> {
+        delete result.password
+        req.session.user = result
+        console.log('userCtrl: line 50', result)
+        return res.status(200).send(req.session.user)
       })
       .catch(err => {
         console.log(err)

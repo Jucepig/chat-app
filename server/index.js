@@ -73,7 +73,7 @@ app.get('/auth/logout', authCtrl.logout)
 // User 
 app.get('/api/user/:user_id', userCtrl.getUser)
 app.get('/api/users', userCtrl.getAllUsers)
-app.put('/api/user/:user_id', userCtrl.editUsername)
+app.put('/api/user/:user_id', userCtrl.editInterests)
 
 // Friendships
 app.post('/api/friendships', friendshipCtrl.createRequest)
