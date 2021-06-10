@@ -23,5 +23,20 @@ module.exports = {
         console.log(err)
         return res.status(500).send(err)
       })
+  },
+
+  editUsername: (req, res) => {
+    const db = req.app.get('db')
+    const {user_id} = req.params
+    const {username} = req.body
+    db.user.edit_username(user_id, username)
+      .then(result => {
+        delete result.password
+        return res.status(200).send(result)
+      })
+      .catch(err => {
+        console.log(err)
+        return res.status(500).send(err)
+      })
   }
 }

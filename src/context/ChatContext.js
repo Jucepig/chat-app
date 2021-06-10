@@ -19,6 +19,7 @@ export const useChat = () => {
 function useProvideChat () {
   const [socket, setSocket] = useState(null)
   const [messages, setMessages] = useState([])
+  const [privateMessages, setPrivateMessages] = useState([])
   const { user } = useAuth();
   const { setChatRooms, chatRooms } = useCommunity();
 
@@ -43,17 +44,19 @@ function useProvideChat () {
   useEffect(() => {
     if(socket){
       //client-side endpoints
-      // const username = user.username
-      // socket.emit('create-private-room', {username})
+      const username = user.username
+      socket.emit('create-private-room', {username})
 
       socket.on('relay-message', (body) => {
         const {message, username} = body
         setMessages(messages => [...messages, {message, username}])
       })
 
-      // socket.on('provide-private-room', (body) => {
-      //   setChatRooms(chatRooms => [...chatRooms, body])
-      // })
+      socket.on('private-message', (body) => {
+        console.log(body)
+        const {message, username} = body
+        setPrivateMessages(privateMessages => [...privateMessages, {message, username}])
+      })
     }
   }, [socket])
 
@@ -61,9 +64,21 @@ function useProvideChat () {
     socket.emit('send-message', {message, username: user.username})
   }
 
+  const sendPrivateMessage = (body) => {
+    // console.log(body)
+    socket.emit('private-message', body)
+  }
+
+  const joinRoom = ({room, username}) =>{
+    socket.emit('join-room', {room, username})
+  }
+
   return {
     sendMessage,
     messages,
-    socket
+    privateMessages,
+    sendPrivateMessage,
+    socket,
+    joinRoom
   }
 }

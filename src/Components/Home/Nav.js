@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom'
         <Link to="/home">
           Home
         </Link>
-        <Link to="/home/chatrooms">
-          ChatRooms
+        <Link to="/home/private">
+          Private
         </Link>
         <Link to="/home/chat">
           Chat

@@ -37,18 +37,24 @@ massive({
       console.log(`Socket ${socket.id} disconnected`)
     })
 
-    // socket.on('create-private-room', (body) => {
-    //   const {username} = body
-    //   socket.join(username)
-    //   socket.emit('provide-private-room', username)
-    // })
-
-    socket.on('send-message', body => {
-      io.emit('relay-message', body)
+    socket.on('create-private-room', (body) => {
+      const {username} = body
+      socket.join(username)
     })
 
-    socket.on('join-room', room => {
-      socket.join(room)
+    socket.on('send-message', body => {
+        io.emit('relay-message', body)
+    })
+
+    socket.on('private-message', body => {
+      console.log(body)
+      socket.to(body.room).emit('private-message', body)
+    })
+
+    socket.on('join-room', body => {
+      socket.join(body.room)
+      const message = `${body.username} has joined "${body.room}" room`
+      socket.to(body.room).emit('relay-message', {message, username: body.username})
     })
   })
 })
@@ -63,6 +69,7 @@ app.get('/auth/logout', authCtrl.logout)
 // User 
 app.get('/api/user/:user_id', userCtrl.getUser)
 app.get('/api/users', userCtrl.getAllUsers)
+app.put('/api/user/:user_id', userCtrl.editUsername)
 
 // Friendships
 app.post('/api/friendships', friendshipCtrl.createRequest)

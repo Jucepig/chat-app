@@ -10,7 +10,8 @@ CREATE TABLE users (
   password VARCHAR(400),
   profile_pic VARCHAR(100),
   interests VARCHAR(1000) default NULL,
-  online BOOLEAN default NULL
+  online BOOLEAN default NULL,
+  isAdmin BOOLEAN default false
 );
 
 CREATE TABLE friendships (
