@@ -9,6 +9,6 @@ export default (
     <Route exact path='/home/chat' component={Chat}/>
     <Route path='/home/chatrooms' component={ChatRooms}/>
     <Route path='/home/private' component={Private} />
-    <Route path='/home/about_me' component={AboutMe} />
+    <Route path='/home/about_me/:user_id' component={AboutMe} />
   </Switch>
 )

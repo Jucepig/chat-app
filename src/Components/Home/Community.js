@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useCommunity } from '../../context/CommunityContext'
 import { useChat } from '../../context/ChatContext'
 import { useAuth } from '../../context/AuthContext'
+import { Link } from 'react-router-dom'
 
 export default function() {
   const chat = useChat()
@@ -30,7 +31,11 @@ export default function() {
           <div className={index % 2 === 0 ? 'user' : 'other-user'} key={user.user_id}>
              <img className="user-pic" src={user.profile_pic} alt={user.username}/>
              <div className="user-info">
-              <p>{user.username}</p>
+             <p>
+                <Link to={`/home/about_me/${user.user_id}`}>
+                  {user.username}
+                </Link>
+              </p>
               <div>{user.online ?'online' : 'offline'}</div>
               {/* <div>{user.online ? <button onClick={() => handleJoinRoom (user.username)}>Join Chat</button> : 'offline'}</div> */}
              </div>
