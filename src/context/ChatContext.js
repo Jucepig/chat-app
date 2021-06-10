@@ -1,5 +1,6 @@
 import { useState, useContext, createContext, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
+import { useCommunity } from '../context/CommunityContext'
 import io from 'socket.io-client'
 
 const chatContext = createContext()
@@ -19,6 +20,7 @@ function useProvideChat () {
   const [socket, setSocket] = useState(null)
   const [messages, setMessages] = useState([])
   const { user } = useAuth();
+  const { setChatRooms, chatRooms } = useCommunity();
 
   useEffect(() => {
     if(!user) {
@@ -41,10 +43,17 @@ function useProvideChat () {
   useEffect(() => {
     if(socket){
       //client-side endpoints
+      // const username = user.username
+      // socket.emit('create-private-room', {username})
+
       socket.on('relay-message', (body) => {
         const {message, username} = body
         setMessages(messages => [...messages, {message, username}])
       })
+
+      // socket.on('provide-private-room', (body) => {
+      //   setChatRooms(chatRooms => [...chatRooms, body])
+      // })
     }
   }, [socket])
 
@@ -54,6 +63,7 @@ function useProvideChat () {
 
   return {
     sendMessage,
-    messages
+    messages,
+    socket
   }
 }

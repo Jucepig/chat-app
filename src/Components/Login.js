@@ -31,7 +31,7 @@ const Login = () => {
 
   return (
     <div id="auth">
-      <h1>ChatRooms</h1>
+      <h1>ChatRoom</h1>
       <section id="auth-input-container">
         {error ? <span>{error}  <button className="btn-primary" onClick={closeErrorMessage}>X</button></span> : null}
         <input 

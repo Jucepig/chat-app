@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
 import { useCommunity } from '../../context/CommunityContext'
+import { useChat } from '../../context/ChatContext'
 
 export default function() {
-  
+  const chat = useChat()
+  const { socket } = chat
   const community = useCommunity()
   const { communityUsers, loading, getAllUsers } = community
   

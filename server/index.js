@@ -37,7 +37,13 @@ massive({
       console.log(`Socket ${socket.id} disconnected`)
     })
 
-    socket.on('send-message', (body) => {
+    // socket.on('create-private-room', (body) => {
+    //   const {username} = body
+    //   socket.join(username)
+    //   socket.emit('provide-private-room', username)
+    // })
+
+    socket.on('send-message', body => {
       io.emit('relay-message', body)
     })
 
