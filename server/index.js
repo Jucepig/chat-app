@@ -30,6 +30,9 @@ massive({
   console.log("Database connected")
   const io = require('socket.io')((app.listen(SERVER_PORT, () => console.log(`Server listening on ${SERVER_PORT}`))), {cors: {origin: true}})
 
+
+  // --- Sockets ---
+
   io.on('connection', (socket) => {
     console.log(`Socket ${socket.id} connected`)
     // Server Endpoints
@@ -38,6 +41,7 @@ massive({
     })
 
     socket.on('create-private-room', (body) => {
+      console.log(body)
       const {username} = body
       socket.join(username)
     })

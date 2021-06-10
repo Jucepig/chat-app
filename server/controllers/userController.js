@@ -38,5 +38,19 @@ module.exports = {
         console.log(err)
         return res.status(500).send(err)
       })
+  },
+
+  editInterests: (req, res) => {
+    const db = req.app.get('db')
+    const {user_id} = req.params
+    const {interests} = req.body
+    db.user.edit_username(user_id, interests)
+      .then(result => {
+        return res.status(200).send(result)
+      })
+      .catch(err => {
+        console.log(err)
+        return res.status(500).send(err)
+      })
   }
 }

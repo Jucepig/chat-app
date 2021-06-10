@@ -56,6 +56,19 @@ function useProvideAuth() {
       .catch(err => console.log(err))
   }
 
+  const handleEditUsername = (user_id, username) => {
+    axios
+      .put(`/api/user/${user_id}`, {username})
+      .then(res => {
+        setUser(res.data)
+        setError('')
+      })
+      .catch(err => {
+        console.log(err)
+        setError(err.response.data)
+      })
+  }
+
   return {
     user,
     setUser,
@@ -63,6 +76,7 @@ function useProvideAuth() {
     setError,
     handleLogin,
     handleRegister,
-    handleLogout
+    handleLogout,
+    handleEditUsername
   }
 }

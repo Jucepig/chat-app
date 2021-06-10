@@ -19,8 +19,15 @@
 
   &-info{
   @include flexCenter(row);
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: calc(100% - 80px);
+    p{
+      width: 70%;
+      text-align: center;
+    }
+    div {
+      width: 30%;
+    }
   }
 }
 

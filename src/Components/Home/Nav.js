@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom'
         <Link to="/home">
           Home
         </Link>
-        <Link to="/home/private">
-          Private
+        <Link to="/home/about_me">
+          About Me
         </Link>
         <Link to="/home/chat">
           Chat

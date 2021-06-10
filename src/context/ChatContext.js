@@ -21,7 +21,7 @@ function useProvideChat () {
   const [messages, setMessages] = useState([])
   const [privateMessages, setPrivateMessages] = useState([])
   const { user } = useAuth();
-  const { setChatRooms, chatRooms } = useCommunity();
+  // const { setChatRooms, chatRooms } = useCommunity();
 
   useEffect(() => {
     if(!user) {

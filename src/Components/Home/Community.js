@@ -15,6 +15,7 @@ export default function() {
   })
 
   const handleJoinRoom = (user) => {
+    console.log(user)
     joinRoom({room: user, username: auth.user.username})
   }
 
@@ -30,7 +31,8 @@ export default function() {
              <img className="user-pic" src={user.profile_pic} alt={user.username}/>
              <div className="user-info">
               <p>{user.username}</p>
-              <div>{user.online ? <button onClick={() => handleJoinRoom (user.username)}>Join Chat</button> : 'offline'}</div>
+              <div>{user.online ?'online' : 'offline'}</div>
+              {/* <div>{user.online ? <button onClick={() => handleJoinRoom (user.username)}>Join Chat</button> : 'offline'}</div> */}
              </div>
           </div>
         )
