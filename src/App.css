@@ -113,7 +113,8 @@
 
 #showcase {
   height: 100%;
-  width: 75%; }
+  width: 75%;
+  overflow: auto; }
 
 @media (max-width: 600px) {
   #links {

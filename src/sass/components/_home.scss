@@ -62,6 +62,7 @@
 #showcase {
   height: 100%;
   width: 75%;
+  overflow: auto;
 };
 
 @include mobile{
